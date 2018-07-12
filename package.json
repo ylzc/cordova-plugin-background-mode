@@ -30,7 +30,7 @@
       "version": ">=16"
     }
   ],
-  "author": "Sebastián Katzer",
+  "author": "ylzc",
   "license": "Apache 2.0",
   "bugs": {
     "url": "https://github.com/ylzc/cordova-plugin-background-mode/issues"
