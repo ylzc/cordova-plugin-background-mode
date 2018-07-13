@@ -170,12 +170,16 @@ public class ForegroundService extends Service {
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         if (SDK_INT >= O) {
             //TODO NotificationChannel 创建 更新 删除
-            channel = new NotificationChannel(
-                    "cowork-background-mode",
-                    "cowork",
-                    NotificationManager.IMPORTANCE_DEFAULT
-            );
+            channel = notificationManager.getNotificationChannel("cowork-background-mode");
             if (channel != null) {
+                channel = new NotificationChannel(
+                        "cowork-background-mode",
+                        "cowork",
+                        NotificationManager.IMPORTANCE_LOW
+                );
+                channel.setShowBadge(false);
+                notificationManager.createNotificationChannel(channel);
+            } else {
                 notificationManager.createNotificationChannel(channel);
             }
             notification = new Notification.Builder(context, "cowork-background-mode")
