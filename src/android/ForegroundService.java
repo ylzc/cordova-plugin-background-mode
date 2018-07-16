@@ -171,7 +171,7 @@ public class ForegroundService extends Service {
         if (SDK_INT >= O) {
             //TODO NotificationChannel 创建 更新 删除
             channel = notificationManager.getNotificationChannel("cowork-background-mode");
-            if (channel != null) {
+            if (channel == null) {
                 channel = new NotificationChannel(
                         "cowork-background-mode",
                         "cowork",
